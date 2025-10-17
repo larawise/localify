@@ -1,0 +1,18 @@
+# ℹ️ Project files that editors automatically compile.
+.idea/
+.vscode/
+.fleet/
+
+# ℹ️ Unit and other test caches and temporary files.
+.phpunit.cache
+.phpunit.result.cache
+
+# ℹ️ Composer and npm temporary files.
+vendor/
+composer.lock
+package.lock
+pnpm.lock
+
+# ℹ️ Operating system files and temporary files.
+Thumbs.db
+.DS_Store
