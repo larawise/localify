@@ -1,0 +1,55 @@
+{
+    "name"                  : "larawise/localify",
+    "type"                  : "package",
+    "description"           : "Localify – ",
+    "keywords"              : [],
+    "license"               : "MIT",
+    "homepage"              : "https://larawise.com/",
+
+    "authors"               : [{
+        "name"            : "Selçuk Çukur",
+        "email"           : "hk@selcukcukur.com.tr",
+        "homepage"        : "https://selcukcukur.com.tr"
+    }],
+
+    "support"               : {
+        "source"          : "https://github.com/larawise/localify",
+        "issues"          : "https://github.com/larawise/localify/issues",
+        "docs"            : "https://docs.larawise.com"
+    },
+
+    "require"               : {
+        "php"                               : "^8.2|^8.3|^8.4",
+        "larawise/larawise"                 : "dev-main",
+        "larawise/packagify"                : "dev-main",
+        "brick/money"                       : "^0.10"
+    },
+
+    "autoload"              : {
+        "psr-4"     : {
+            "Larawise\\Localify\\"          : "./src"
+        }
+    },
+    "autoload-dev"          : {
+        "psr-4"     : {
+            "Larawise\\Tests\\"             : "./tests"
+        }
+    },
+
+    "extra"                 : {
+        "laravel"   : {
+            "providers"     : ["Larawise\\Localify\\LocalifyProvider"],
+            "aliases"       : { "Localify": "Larawise\\Localify\\Facades\\Localify" }
+        }
+    },
+
+    "config"                : {
+        "optimize-autoloader"   : true,
+        "preferred-install"     : "dist",
+        "sort-packages"         : true,
+        "allow-plugins"         : {}
+    },
+
+    "minimum-stability"     : "dev",
+    "prefer-stable"         : true
+}
