@@ -1,0 +1,25 @@
+# ℹ️ Mark all other files as text files.
+* text=auto
+
+# ℹ️ Identification of common extensions and project extensions.
+*.blade.php diff=html
+*.levd diff=html
+*.css diff=css
+*.html diff=html
+*.md diff=markdown
+*.php diff=php
+
+# ℹ️ Project files that should be excluded.
+changelog.md export-ignore
+security.md export-ignore
+version.md export-ignore
+
+# ℹ️ Generally needed configuration files or temporary files.
+/.github export-ignore
+.editorconfig export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore
+
+# ℹ️ Exclusions for unit tests and application dependencies.
+/tests export-ignore
+phpunit.xml.dist export-ignore
