@@ -3,6 +3,7 @@
 namespace Larawise\Localify\Casts;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
+use Illuminate\Database\Eloquent\Model;
 use Larawise\Localify\Objects\Timezone;
 
 /**
@@ -19,36 +20,32 @@ use Larawise\Localify\Objects\Timezone;
 class CurrencyCast implements CastsAttributes
 {
     /**
-     * Cast the given value into a Timezone object.
+     * Transform the attribute from the underlying model values.
      *
-     * @param \Illuminate\Database\Eloquent\Model $model
+     * @param Model $model
      * @param string $key
      * @param mixed $value
-     * @param array $attributes
+     * @param array<string, mixed> $attributes
      *
-     * @return Timezone|null
+     * @return TGet|null
      */
-    public function get($model, string $key, $value, array $attributes)
+    public function get(Model $model, string $key, mixed $value, array $attributes)
     {
-        return $value ? Timezone::from($value) : null;
+        // TODO: Implement get() method.
     }
 
     /**
-     * Prepare the timezone object for storage.
+     * Transform the attribute to its underlying model values.
      *
-     * @param \Illuminate\Database\Eloquent\Model $model
+     * @param Model $model
      * @param string $key
-     * @param Timezone|string|null $value
-     * @param array $attributes
+     * @param TSet|null $value
+     * @param array<string, mixed> $attributes
      *
-     * @return string|null
+     * @return mixed
      */
-    public function set($model, string $key, $value, array $attributes)
+    public function set(Model $model, string $key, mixed $value, array $attributes)
     {
-        if ($value instanceof Timezone) {
-            return $value->timezone();
-        }
-
-        return is_string($value) ? Timezone::from($value)?->timezone() : null;
+        // TODO: Implement set() method.
     }
 }
