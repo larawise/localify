@@ -145,7 +145,7 @@ class LocalifyParser
      */
     public static function parseCountry($value)
     {
-        return static::parseLocale($value)->country;
+        return static::parseLocale($value)->country();
     }
 
     /**
@@ -157,7 +157,7 @@ class LocalifyParser
      */
     public static function parseLanguage($value)
     {
-        return static::parseLocale($value)->language;
+        return static::parseLocale($value)->language();
     }
 
     /**

@@ -16,7 +16,7 @@ use Illuminate\Contracts\Validation\ValidationRule;
  *
  * @see https://docs.larawise.com/ Larawise : Docs
  */
-class Currency implements ValidationRule
+class Locale implements ValidationRule
 {
     // ...
 }
