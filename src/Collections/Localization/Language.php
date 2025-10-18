@@ -1,6 +1,6 @@
 <?php
 
-namespace Larawise\Localify\Collections\Geography;
+namespace Larawise\Localify\Collections\Localization;
 
 /**
  * Srylius - The ultimate symphony for technology architecture!
@@ -13,7 +13,7 @@ namespace Larawise\Localify\Collections\Geography;
  *
  * @see https://docs.larawise.com/ Larawise : Docs
  */
-enum Region: string
+enum Language: string
 {
 
 }

@@ -3,12 +3,6 @@
 return [
     'storage'                                   => env('LOCALIFY_STORAGE', 'database'),
 
-    'fallback_locale'                           => env('LOCALIFY_FALLBACK_LOCALE', 'en'),
-    'fallback_currency'                         => env('LOCALIFY_FALLBACK_CURRENCY', 'USD'),
-    'fallback_timezone'                         => env('LOCALIFY_FALLBACK_CURRENCY', 'UTC'),
-
-
-
     'drivers'                                   => [
         'database'  => [
             'driver'        => 'database',

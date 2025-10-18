@@ -1,6 +1,6 @@
 <?php
 
-namespace Larawise\Localify\Enums;
+namespace Larawise\Localify\Collections\Geography;
 
 /**
  * Srylius - The ultimate symphony for technology architecture!

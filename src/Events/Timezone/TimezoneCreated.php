@@ -2,6 +2,8 @@
 
 namespace Larawise\Localify\Events\Timezone;
 
+use Larawise\Events\Event;
+
 /**
  * Srylius - The ultimate symphony for technology architecture!
  *
@@ -13,7 +15,7 @@ namespace Larawise\Localify\Events\Timezone;
  *
  * @see https://docs.srylius.com/ Srylius : Dev
  */
-class TimezoneCreated
+class TimezoneCreated extends Event
 {
     /**
      * Create a new event instance.

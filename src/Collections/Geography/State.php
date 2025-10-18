@@ -13,7 +13,7 @@ namespace Larawise\Localify\Collections\Geography;
  *
  * @see https://docs.larawise.com/ Larawise : Docs
  */
-enum Region: string
+enum State: string
 {
 
 }
