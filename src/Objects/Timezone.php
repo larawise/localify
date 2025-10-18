@@ -3,7 +3,6 @@
 namespace Larawise\Localify\Objects;
 
 use Carbon\Carbon;
-use DateTime;
 use DateTimeZone;
 use Exception;
 use Larawise\Localify\Contracts\TimezoneContract;

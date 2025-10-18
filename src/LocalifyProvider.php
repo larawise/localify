@@ -35,5 +35,10 @@ class LocalifyProvider extends PackagifyProvider
 
         $package->hasConfigurations();
         $package->hasSingletons('localify', fn ($app) => new LocalifyManager($app));
+        $package->hasCommands([
+            Console\CurrencyGenerateCommand::class,
+            Console\CountryGenerateCommand::class,
+            Console\TimezoneGenerateCommand::class,
+        ]);
     }
 }

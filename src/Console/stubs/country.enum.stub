@@ -1,0 +1,173 @@
+<?php
+
+namespace {{ namespace }};
+
+/**
+ * Srylius - The ultimate symphony for technology architecture!
+ *
+ * @package     Larawise
+ * @subpackage  Localify
+ * @version     v1.0.0
+ * @author      Selçuk Çukur <hk@selcukcukur.com.tr>
+ * @copyright   Srylius Teknoloji Limited Şirketi
+ *
+ * @see https://docs.larawise.com/ Larawise : Docs
+ */
+enum {{ name }}: {{ type }}
+{
+{{ cases }}
+
+    /**
+     * Get the country name.
+     *
+     * @return {{ type }}
+     */
+    public function name(): {{ type }}
+    {
+        return match ($this) {
+{{ names }}
+        };
+    }
+
+    /**
+     * Get the country ISO3 code.
+     *
+     * @return {{ type }}
+     */
+    public function iso3(): {{ type }}
+    {
+        return match ($this) {
+{{ iso3s }}
+        };
+    }
+
+    /**
+     * Get the country phone code.
+     *
+     * @return {{ type }}
+     */
+    public function phoneCode(): {{ type }}
+    {
+        return match ($this) {
+{{ phonecodes }}
+        };
+    }
+
+    /**
+     * Get the country currency.
+     *
+     * @return {{ type }}
+     */
+    public function currency(): {{ type }}
+    {
+        return match ($this) {
+{{ currencys }}
+        };
+    }
+
+    /**
+     * Get the country currency symbol.
+     *
+     * @return {{ type }}
+     */
+    public function currencySymbol(): {{ type }}
+    {
+        return match ($this) {
+{{ currency_symbols }}
+        };
+    }
+
+    /**
+     * Get the country tld.
+     *
+     * @return {{ type }}
+     */
+    public function tld(): {{ type }}
+    {
+        return match ($this) {
+{{ tlds }}
+        };
+    }
+
+    /**
+     * Get the country native name.
+     *
+     * @return {{ type }}
+     */
+    public function native(): {{ type }}
+    {
+        return match ($this) {
+{{ natives }}
+        };
+    }
+
+    /**
+     * Get the country region value.
+     *
+     * @return {{ type }}
+     */
+    public function region(): {{ type }}
+    {
+        return match ($this) {
+{{ regions }}
+        };
+    }
+
+    /**
+     * Get the country subregion value.
+     *
+     * @return {{ type }}
+     */
+    public function subregion(): {{ type }}
+    {
+        return match ($this) {
+{{ subregions }}
+        };
+    }
+
+    /**
+     * Get the country emoji.
+     *
+     * @return {{ type }}
+     */
+    public function emoji(): {{ type }}
+    {
+        return match ($this) {
+{{ emojis }}
+        };
+    }
+
+    /**
+     * Get the country latitude value.
+     *
+     * @return {{ type }}
+     */
+    public function latitude(): {{ type }}
+    {
+        return match ($this) {
+{{ latitudes }}
+        };
+    }
+
+    /**
+     * Get the country longitude value.
+     *
+     * @return {{ type }}
+     */
+    public function longitude(): {{ type }}
+    {
+        return match ($this) {
+{{ longitudes }}
+        };
+    }
+
+    /**
+     * Get all country codes.
+     *
+     * @return {{ type }}[]
+     */
+    public static function values(): array
+    {
+        return array_column(self::cases(), 'value');
+    }
+}

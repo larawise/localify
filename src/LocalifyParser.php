@@ -4,7 +4,7 @@ namespace Larawise\Localify;
 
 use Brick\Money\Exception\UnknownCurrencyException;
 use Larawise\Localify\Exceptions\LocalifyException;
-use Larawise\Localify\Objects\Currency;
+use Larawise\Localify\Objects\Amount;
 use Larawise\Localify\Objects\Locale;
 
 /**
@@ -45,11 +45,11 @@ class LocalifyParser
      *
      * @param string $value
      *
-     * @return Currency
+     * @return Amount
      */
     public static function parseCurrencyString($value)
     {
-        return Currency::from($value);
+        return Amount::from($value);
     }
 
     /**

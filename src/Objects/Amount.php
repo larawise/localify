@@ -3,9 +3,10 @@
 namespace Larawise\Localify\Objects;
 
 use Illuminate\Support\Str;
+use Larawise\Localify\Enums\Currency;
 use Stringable;
 
-final class Currency implements Stringable
+final class Amount implements Stringable
 {
     /**
      * Raw extracted amount string (e.g. "1.234,56").
@@ -20,6 +21,13 @@ final class Currency implements Stringable
      * @var string|null
      */
     public $currency;
+
+    /**
+     * ISO 4217 currency code (e.g. "USD", "EUR", "TRY").
+     *
+     * @var string|null
+     */
+    public $symbol;
 
     /**
      * Indicates the display direction based on currency placement.
@@ -68,7 +76,7 @@ final class Currency implements Stringable
      *
      * @var string
      */
-    private static $regex = '/^(?:(?<currency_left>[A-Z]{3})\s*)?(?<amount>\d{1,3}(?:[.,\s\'`]?\d{3})*(?:[.,]\d+)?)(?:\s*(?<currency_right>[A-Z]{3}))?$/u';
+    private static $regex = '/^(?:(?<currency_left>[A-Z]{3}|[^\d\s.,]+)\s*)?(?<amount>\d{1,3}(?:[.,\s\'`]?\d{3})*(?:[.,]\d+)?)(?:\s*(?<currency_right>[A-Z]{3}|[^\d\s.,]+))?$/u';
 
     /**
      * Create a new currency instance.
@@ -121,7 +129,7 @@ final class Currency implements Stringable
         }
 
         // Use provided regex or fallback to default pattern
-        $pattern = $regex ?? Currency::$regex;
+        $pattern = $regex ?? Amount::$regex;
 
         // Apply regex to extract currency and amount components
         preg_match($pattern, $normalized, $matches);
@@ -130,11 +138,20 @@ final class Currency implements Stringable
         $currency_left  = trim($matches['currency_left'] ?? '');
         $currency_right = trim($matches['currency_right'] ?? '');
 
-        // Determine final currency code (prefer left, fallback to right)
-        $currency = $currency_left ?: ($currency_right ?: null);
-
         // Determine direction based on currency position
         $direction = $currency_left ? 'LTR' : ($currency_right ? 'RTL' : null);
+
+        // Determine raw currency input (could be ISO or symbol)
+        $rawCurrency = $currency_left ?: ($currency_right ?: null);
+        $currency = null;
+
+        // Try resolving symbol to ISO code via enum
+        if ($rawCurrency) {
+            $resolved = Currency::fromSymbol($rawCurrency);
+            $currency = $resolved ? $resolved->value : (
+                Str::length($rawCurrency) === 3 ? strtoupper($rawCurrency) : null
+            );
+        }
 
         // Extract numeric amount
         $amount = $matches['amount'] ?? null;
@@ -143,7 +160,7 @@ final class Currency implements Stringable
         [$decimalSeparator, $thousandsSeparator, $decimals] = self::ensureSeparators($amount);
 
         // Create and cache the Currency instance
-        return self::$cache[$key] = new Currency(
+        return self::$cache[$key] = new Amount(
             $currency,
             $amount,
             $direction,

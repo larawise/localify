@@ -1,0 +1,89 @@
+<?php
+
+namespace {{ namespace }};
+
+/**
+ * Srylius - The ultimate symphony for technology architecture!
+ *
+ * @package     Larawise
+ * @subpackage  Localify
+ * @version     v1.0.0
+ * @author      Selçuk Çukur <hk@selcukcukur.com.tr>
+ * @copyright   Srylius Teknoloji Limited Şirketi
+ *
+ * @see https://docs.larawise.com/ Larawise : Docs
+ */
+enum {{ name }}: {{ type }}
+{
+{{ cases }}
+
+    /**
+     * Get the display label for the timezone.
+     *
+     * @return {{ type }}
+     */
+    public function name(): {{ type }}
+    {
+        return match ($this) {
+{{ names }}
+        };
+    }
+
+    /**
+     * Get the full name or description.
+     *
+     * @return {{ type }}
+     */
+    public function fractionSize(): {{ type }}
+    {
+        return match ($this) {
+{{ fractionSizes }}
+        };
+    }
+
+    /**
+     * Get the UTC offset.
+     *
+     * @return {{ type }}
+     */
+    public function symbolGrapheme(): {{ type }}
+    {
+        return match ($this) {
+{{ symbol.graphemes }}
+        };
+    }
+
+    /**
+     * Get the UTC offset.
+     *
+     * @return {{ type }}
+     */
+    public function symbolTemplate(): {{ type }}
+    {
+        return match ($this) {
+{{ symbol.templates }}
+        };
+    }
+
+    /**
+     * Get the UTC offset.
+     *
+     * @return {{ type }}
+     */
+    public function symbolRtl(): {{ type }}
+    {
+        return match ($this) {
+{{ symbol.rtls }}
+        };
+    }
+
+    /**
+     * Get all timezone codes.
+     *
+     * @return {{ type }}[]
+     */
+    public static function values(): array
+    {
+        return array_column(self::cases(), 'value');
+    }
+}
